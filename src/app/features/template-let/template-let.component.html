@@ -1,0 +1,22 @@
+@if(items$ | async; as items) {
+  @if (items.length) {
+    <select>
+      @for(item of items; track item.name) {
+        <option [value]="item.name">{{ item.name }}</option>
+      }
+    </select>
+  } @else {
+    <p>No items available</p>
+  }
+}
+
+@let items = items$ | async;
+@if (items && items.length) {
+  <select>
+      @for(item of items; track item.name) {
+        <option [value]="item.name">{{ item.name }}</option>
+      }
+    </select>
+} @else {
+  <p>No items available</p>
+}

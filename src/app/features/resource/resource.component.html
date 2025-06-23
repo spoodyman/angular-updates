@@ -1,0 +1,24 @@
+
+<div class="resource-container">
+@if(pokemonResource.isLoading()) {
+  <p>Loading pokemon details...</p>
+} @else if (pokemonResource.error()) {
+  <p>Error loading pokemon details: {{ pokemonResource.error() }}</p>
+} @else {
+  <p>Resource: {{ pokemonResource.value() | json }}</p>
+}
+</div>
+
+<div class="resource-container">
+@if(pokemonResource$.isLoading()) {
+  <p>Loading pokemon details...</p>
+} @else if (pokemonResource$.error()) {
+  <p>Error loading pokemon details: {{ pokemonResource$.error() | json }}</p>
+} @else {
+  <p>RxResource: {{ pokemonResource$.value() | json }}</p>
+}
+</div>
+
+<button (click)="updatePokemonState('pikachu')">Update resource state</button>
+<button (click)="updatePokemonParam('pikachu')">Update resource param</button>
+<button (click)="reloadPokemon()">Reload resource</button>
