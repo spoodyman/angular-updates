@@ -1,0 +1,8 @@
+<ng-container
+  [ngComponentOutlet]="component()"
+  [ngComponentOutletInputs]="componentInput()"
+  [ngComponentOutletInjector]="componentInjector"
+/>
+
+<button (click)="createComponent()">Create Component</button>
+<button (click)="destroyComponent()">Destroy Component</button>

@@ -1,0 +1,25 @@
+@for(pokemon of pokemons; track pokemon.name) {
+  <div class="pokemon-card">
+    <h2>{{ pokemon.name }}</h2>
+    <p>Type: {{ pokemon.type }}</p>
+    <p>Level: {{ pokemon.level }}</p>
+    <h3>Abilities:</h3>
+    <ul>
+      @for(ability of pokemon.abilities; track ability.name) {
+        @let hasStatusEffect = 'statusEffect' in ability;
+        <li>
+          <strong>{{ ability.name }}</strong>
+          <span> - Power: {{ ability.power }}, Accuracy: {{ ability.accuracy }}%</span>
+          @if(hasStatusEffect) {
+            <span>, Effect: {{ ability.statusEffect?.name }}</span>
+          }
+
+          <!-- @if(ability.statusEffect) {
+             <span>, Effect: {{ ability.statusEffect.name }}</span>
+          } -->
+        </li>
+      }
+    </ul>
+    <hr>
+  </div>
+}
